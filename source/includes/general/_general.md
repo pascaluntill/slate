@@ -14,7 +14,7 @@ In case you might have any questions about our API, please <a href="http://integ
 
 * 3rd party software calls SOAP functions, provided by unTill Server
 * unTill Server communicates to a special instance of unTill.exe which runs in background
-* unTill.exe performs the required actions and sends back the results
+* unTill.exe performs the required action and sends back the result
 
 ## TPAPI-POS Entry Point
 
@@ -24,7 +24,7 @@ The TPAPI-POS WSDL consists of the hostname, port and looks like this:
 
 URL example: <a href="http://testapi.untill.com:3063/wsdl/ITPAPIPOS" target="_blank">http://testapi.untill.com:3063/wsdl/ITPAPIPOS</a>
 
-This WSDL can be used to generate a client for the TPAPI web-service on any programming language. The default port is UNTILLSRV_PORT+3 but this may be redefined in untill.ini if required: 
+This WSDL can be used to generate a client for the TPAPI web-service on any programming language. The default port is UNTILLSRV_PORT+3 but this may be redefined in untill.ini, if required: 
     
 <i>[common]<br>
 soapport=7777</i>
@@ -74,7 +74,7 @@ The following [articles and option types](#order-item-types) can be ordered with
 * <b>Menu items:</b> When a certain article is a menu (`IsMenu` = true), the list of “must-have options” (`Options`) for this article acts as a list of article-groups. You may order one article per option and this article needs to be included into order as “Menu item”.
 * <b>Article message:</b> Text which may be informative either for certain order item, the order part or the complete order.
 
-To identify the item type, there is the `OrderItemType` field in the [OrderItem](#orderitem) structure. It is not required to specify in [CreateOrder](#createorder) request if certain article has `IsMenu` enabled: the only requirement is to identify it’s menu items. Below there are a few examples. Order items are shown hierarchically just for convenience. In the list of items they follow one after another.
+To identify the item type, there is the `OrderItemType` field in the [OrderItem](#orderitem) structure. It is not required to specify in [CreateOrderRequest](#createorder-request) if certain article has `IsMenu` enabled: the only requirement is to identify it’s menu items. Below there are a few examples. Order items are shown hierarchically just for convenience. In the list of items they follow one after another.
 
 * <b>List of regular articles:</b>
     * Article 1: `OrderItemType` = 0

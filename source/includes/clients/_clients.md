@@ -218,13 +218,13 @@ Key |Description
 --- | -----------
 `result_ids` | Comma separated String of Id's of created and/or updated Clients. The number of Id's returned is equal to the number of Clients sent in the request
 
-## ClientAccountDeposit
+## ClientDeposit
 
 Makes Deposit to Client Account.
 
-### ClientAccountDeposit Request
+### ClientDeposit Request
 
-> ClientAccountDeposit Request
+> ClientDeposit Request
 
 ```xml
 <soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:TPAPIPosIntfU-ITPAPIPOS" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
@@ -248,7 +248,10 @@ Parameter | Type | Status | Description
 --------- | ---- | ------ | -----------
 Username | String | Mandatory | Username of unTill user
 Password | String | Mandatory | TPAPI password of unTill user
-ModifiedSince | Timestamp | Optional | Specify this value to return only clients added/updated since that date/time
+ClientId | Long | Mandatory | Id of the Client to make the deposit to
+PaymentId | Long | Mandatory | Id of the Payment to use for the deposit
+Amount | Decimal | Mandatory | Amount of the deposit
+Extra | [[ExtraInfo]](#extrainfo) | List of extra fields
 
 List of available extra fields:
 
@@ -257,9 +260,9 @@ Key | Value | Description
 `get_receipt` | - | Instead of printing deposit receipt unTill sends it back in ClientAccountDepositResponse as plain text. The value of ExtraInfo with this key doesn’t matter
 
 
-### ClientAccountDeposit Response
+### ClientDeposit Response
 
-> ClientAccountDeposit Response
+> ClientDeposit Response
 
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
@@ -287,6 +290,6 @@ Extra | [[ExtraInfo]](#extrainfo) | List of extra fields
 
 List of available extra fields:
 
-Key | Value | Description
---- | ----- | -----------
-`receipt_text` | String | Receipt in the form of a plain text returned in this ExtraInfo if `get_receipt` has been added in ClientAccountDepositRequest.Extra
+Key | Description
+--- | -----------
+`receipt_text` | Receipt in the form of a plain text returned in this ExtraInfo if `get_receipt` has been added in ClientAccountDepositRequest.Extra

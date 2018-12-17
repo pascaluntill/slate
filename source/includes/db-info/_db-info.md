@@ -626,7 +626,7 @@ ReturnMessage | String | [Return message](#return-codes)
 Users | [[UserInfo]](#userinfo) | Array of active Users
 Extra | [[ExtraInfo]](#extrainfo) | List of extra fields
 
-## GetDiscountGroups
+## GetDiscountGroupsInfo
 
 Returns list of discount groups with details.
 
