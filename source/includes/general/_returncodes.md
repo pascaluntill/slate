@@ -1,6 +1,6 @@
 # Return Codes
 
-Each function returns a <code>ResultCode</code> and a <code>ResultMessage</code>. When the function completes without any errors, the <code>ResultCode</code> will be `0` and the <code>ResultMessage</code> will be `ok`. For the complete list of result codes, please see the table below:
+Each function returns a `ResultCode` and a `ResultMessage`. When the function completes without any errors, the `ResultCode` will be `0` and the `ResultMessage` will be `ok`. For the complete list of result codes, please see the table below:
 
 
 Result Code | Result Message | Description
